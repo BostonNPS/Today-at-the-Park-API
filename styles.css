@@ -1,0 +1,26 @@
+
+body {
+  color: #222;
+  font: 13px/18px arial, sans-serif;
+  margin: 0;
+}
+a {
+  color: #15c;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight:700;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+img {
+	vertical-align: middle;
+}
+.listing {
+	display:inline-block;
+	list-style:none;
+	padding-left:1em;
+	vertical-align: middle;
+	width:75%;
+}
