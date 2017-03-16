@@ -17,10 +17,17 @@ This format request should be used when the data will be further processed or ma
 Returns a JSON object of all data relating to all sites, and all events scheduled for this current day.
 
 #### Optional Parameters:
+<<<<<<< HEAD
 | Parameter Name	| Value											| Description													|
 | ----------------- | ----------									| ------------------											|
 | site				| Any valid site abbreviation(s)comma separated	| Use to filter out results unrelated to the sites(s) requested.	|
 | date				| Date in UTC format YYYY-MM-DD					| Use to request a specific date.								|
+=======
+| Parameter Name		| Value											| Description													|
+| ----------------- | ----------									| ------------------											|
+| site				| Any valid site abbreviation(s)comma separated	|Use to filter out results unrelated to the sites(s) requested.	|
+| date				|Date in UTC format YYYY-MM-DD					| Use to request a specific date.								|
+>>>>>>> origin/master
 
 #### Example response with parameters:
 `GET https://bostonnpsevents.com/tap/json.cgi?site=PRH,ONC&date=2017-04-18`
@@ -87,13 +94,20 @@ Response will be a JSON object of the site information and events for the Paul R
 ##### Main object
 | Property Name		| Value						| Description													|
 | ----------------- | ----------				| ------------------											|
+<<<<<<< HEAD
 | date_requested	| date string				| The date of the data returned in UTC format.					|
 | sites				| array of site object(s)	| See table below												|
 | events			| array of event object(s)	| See table below												|
+=======
+| date_requested		| date string				| The date of the data returned in UTC format.					|
+| sites				| array of site object(s)	| See table below												|
+| events				| array of event object(s)	| See table below												|
+>>>>>>> origin/master
 
 ##### Sites object
 | Property Name		| Value								| Description													|
 | ----------------- | ----------						| ------------------											|
+<<<<<<< HEAD
 | abbr				| string							| abbreviation of the site										|
 | name				| string							| full name of the site											|
 | hours				| string							| Written out hours of the site for the date returned			|
@@ -129,6 +143,43 @@ Response will be a JSON object of the site information and events for the Paul R
 | -------------------| -----------				| -------------------											| 
 | text				| string						| Text facing the user describing the hyperlink.					| 
 | href				| string	of url				| URL that an anchor tag would link to in its href property.		|
+=======
+| abbr				| string								| abbreviation of the site										|
+| name				| string								| full name of the site											|
+| hours				| string								| Written out hours of the site for the date returned			|
+| fees_required		| string representation of boolean	| Boolean of whether there is a fee schedule or not.				|
+|fees				|array of strings					|Each entry is a string describing an element of the fee schedule.|
+| accessibility		| array of consideration objects		|See table below.|
+| keywords			|array of strings					|Each entry is a string of a keyword used to link events to the site.|
+| locations			|array of strings					|Each entry is a string of a sub-location or alternate name within the overall site.|
+| websites			|array of website objects			|See table below.|
+
+##### Events object
+| Property Name		| Value								| Description													|
+| ----------------- | ----------						|-------------------											|
+|title				|string								|Name of the event.										|
+|content			|string								|Description of the event.											|
+|formattedStartTime	|string								|Written out starting time of the event, can be "All day" for all day events.|
+|formattedEndTime	|string								|Written out ending time of the event, or null if all day.|
+|allDay				|string representation of boolean	|Boolean of whether the event is an all day event.				|
+|location			|string								|Location of the event.		|
+|eventEndTime		|date string						|Start time in UTC format.|
+|eventStartTime		|date string						|End time in UTC format.|
+|image				|string URI							|URI pointing to an uploaded event image, or null if none.|
+|throwAway			|string representation of boolean	|Boolean of whether the event is a less important recurring instance (for prioritizing on space-limited publications).|
+
+##### Consideration object
+| Property Name		| Value						| Description													|
+| ----------------- | -----------				| -------------------											|
+|accessible			|string representation of boolean	|Whether the consideration is accessible or not.		|
+|consideration		|string								|Description of the consideration regarding accessibility.|
+
+#####Website object
+|Property Name		|Value						|Description													|
+|-------------------|-----------				|-------------------											|
+|text				|string						|Text facing the user describing the hyperlink.					|
+|href				|string	of url				|URL that an anchor tag would link to in its href property.		|
+>>>>>>> origin/master
 
 
 ### HTML return format
@@ -142,6 +193,7 @@ This format returns data automatically formatted into a full html document. This
 Returns an HTML document of all sites with information and related events for the current day.
 
 #### Optional Parameters:
+<<<<<<< HEAD
 | Parameter Name	| Value											| Description													|
 | ----------------- | -----------									|  ------------------											| 
 | site				| Any valid site abbreviation(s)comma separated	| Use to filter out results unrelated to the sites(s) requested.	| 
@@ -150,10 +202,19 @@ Returns an HTML document of all sites with information and related events for th
 | exclude			| Any valid properties listed below, comma separated					| Use to exclude specific properties from the page. If used all unlisted properties are included.			|
 | noEmpty			| "true" or "false" - false is default action	| If true, do not render sites that do not have events. |
 | showDate			| "true" or "false" - false is default action	| If true, show a persistent header displaying the requested date. |
+=======
+| Parameter Name		| Value											| Description													|
+| ----------------- |-----------									| ------------------											|
+|site				|Any valid site abbreviation(s)comma separated	|Use to filter out results unrelated to the sites(s) requested.	|
+|date				|Date in UTC format YYYY-MM-DD					|Use to request a specific date.								|
+|include			|Any valid properties listed below, comma separated					|Use to include specific properties in the page. If used, all unlisted properties are excluded.				|
+|exclude			|Any valid properties listed below, comma separated					|Use to exclude specific properties from the page. If used all unlisted properties are included.			|
+>>>>>>> origin/master
 
 #### Include/Exclude properties list:
 
 | Property Name		|
+<<<<<<< HEAD
 | ------------------| 
 | name				| 
 | house				| 
@@ -161,6 +222,15 @@ Returns an HTML document of all sites with information and related events for th
 | fees				| 
 | accessibility		| 
 | websites			| 
+=======
+|------------------|
+|name				|
+|house				|
+|events				|
+|fees				|
+|accessibility		|
+|websites		|
+>>>>>>> origin/master
 
 #### Example response with parameters:
 `GET https://bostonnpsevents.com/tap/html.cgi?site=PRH&date=2017-04-18&include=name,hours,events`
@@ -189,22 +259,39 @@ Returns a JavaScript function and immediate call of that function which will ins
 #### Optional Parameters:
 | Parameter Name		| Value											| Description													|
 | ----------------- | ----------									|-------------------											|
+<<<<<<< HEAD
 | site				| Any valid site abbreviation(s)comma separated	| Use to filter out results unrelated to the sites(s) requested.	| 
 | date				| Date in UTC format YYYY-MM-DD					| Use to request a specific date.								| 
 | include			| Any valid properties listed below, comma separated					| Use to include specific properties in the page. If used, all unlisted properties are excluded.				| 
 | exclude			| Any valid properties listed below, comma separated					| Use to exclude specific properties from the page. If used all unlisted properties are included.			| 
 | string				| A custom string with handlbar property substitution | Use this to avoid the default HTML formatting and instead return a custom string. Useful for inline injection of hours, fees, etc.|
+=======
+|site				|Any valid site abbreviation(s)comma separated	|Use to filter out results unrelated to the sites(s) requested.	|
+|date				|Date in UTC format YYYY-MM-DD					|Use to request a specific date.								|
+|include			|Any valid properties listed below, comma separated					|Use to include specific properties in the page. If used, all unlisted properties are excluded.				|
+|exclude			|Any valid properties listed below, comma separated					|Use to exclude specific properties from the page. If used all unlisted properties are included.			|
+|string				|A custom string with handlbar property substitution |Use this to avoid the default HTML formatting and instead return a custom string. Useful for inline injection of hours, fees, etc.|
+>>>>>>> origin/master
 
 #### Include/Exclude/String properties list:
 
 | Property Name		|
 | ---------------- |
+<<<<<<< HEAD
 | name				| 
 | house				| 
 | events				| 
 | fees				| 
 | accessibility		| 
 | websites		| 
+=======
+|name				|
+|house				|
+|events				|
+|fees				|
+|accessibility		|
+|websites		|
+>>>>>>> origin/master
 
 #### Example response with include/exclude parameters:
 
@@ -215,4 +302,8 @@ TODO!!! Not fully functional *yet*
 This example will inject HTML immediately following the `<script></script>` tags for Paul Revere House with just the site's name, the hours of the day requested (April 18, 2017), and the events for that day and nothing else.
 The HTML formatting follows the same convention and styling as the HTML return format above.
 
+<<<<<<< HEAD
 #### Example response using custom string with handlebars:
+=======
+#### Example response using custom string with handlebars:
+>>>>>>> origin/master
