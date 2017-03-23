@@ -61,7 +61,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 				currHours = ''
 				for season in site.find("hours").findall("season"):
 					try:
-						if datetime.datetime.strptime(season.attrib["start"] + " " + str(datetime.date.today().year),"%B %d %Y") <= dateReq <= datetime.datetime.strptime(season.attrib["end"] + " " + str(datetime.date.today().year),"%B %d %Y"):
+						if datetime.datetime.strptime(season.attrib["start"] + " " + str(dateReq.year),"%B %d %Y") <= dateReq <= datetime.datetime.strptime(season.attrib["end"] + " " + str(dateReq.year),"%B %d %Y"):
 							currHours = season.find("default").text
 							for exception in season.findall("exception"):
 								if exception.attrib.has_key('day') and not exception.attrib.has_key('nth') and exception.attrib['day'] == dateReq.strftime("%A"):
