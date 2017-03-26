@@ -81,25 +81,25 @@ def getData(keywords = ["all"], dateReq = datetime.datetime.combine(datetime.dat
 							formatstart = str(starthour) + " a.m. to "
 					else:
 							formatstart = str(starthour) + ":" + startsplit[1] + " a.m. to "
-					endTime = event['end']['dateTime']
-					endsplit = event['end']['dateTime'].split("T")[1].split(":")
-					endhour = int(endsplit[0])
-					if endhour > 12:
-							endhour = endhour - 12
-							if endsplit[1] == "00":
-									formatend = str(endhour) + " p.m."
-							else:
-									formatend = str(endhour) + ":" + endsplit[1] + " p.m."
-					elif endhour == 12:
-							if endsplit[1] == "00":
-									formatend = "Noon"
-							else:
-									formatend = str(endhour) + ":" + endsplit[1] + " p.m."
+				endTime = event['end']['dateTime']
+				endsplit = event['end']['dateTime'].split("T")[1].split(":")
+				endhour = int(endsplit[0])
+				if endhour > 12:
+					endhour = endhour - 12
+					if endsplit[1] == "00":
+							formatend = str(endhour) + " p.m."
 					else:
-							if endsplit[1] == "00":
-									formatend = str(endhour) + " a.m."
-							else:
-									formatend = str(endhour) + ":" + endsplit[1] + " a.m."
+							formatend = str(endhour) + ":" + endsplit[1] + " p.m."
+				elif endhour == 12:
+					if endsplit[1] == "00":
+							formatend = "Noon"
+					else:
+							formatend = str(endhour) + ":" + endsplit[1] + " p.m."
+				else:
+					if endsplit[1] == "00":
+							formatend = str(endhour) + " a.m."
+					else:
+							formatend = str(endhour) + ":" + endsplit[1] + " a.m."
 
 				allDay = False
 			else:
