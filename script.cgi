@@ -13,7 +13,7 @@ import cgitb
 cgitb.enable()
 
 import urllib
-
+import pystache
 def html_escape(text):
     """Produce entities within text."""
     return "".join(html_escape_table.get(c,c) for c in text)
@@ -51,10 +51,14 @@ if postData.has_key('include'):
 	for incl in postData["include"].value.split(","):
 		inclusions[incl] = True
 
-if postData.has_key("string"):
-	for site in DATA['sites']:
-		string = postData["string"].value % site
-		print "self.insertAdjacentHTML('afterend', decodeURIComponent('" +  urllib.quote(string) + "'));"
+if postData.has_key("string") or postData.has_key("handlebar"):
+	if postData.has_key("string"):
+		for site in DATA['sites']:
+			string = postData["string"].value % site
+			print "self.insertAdjacentHTML('afterend', decodeURIComponent('" +  urllib.quote(string) + "'));"
+	else:
+		for site in DATA['sites']:
+			print "self.insertAdjacentHTML('afterend', decodeURIComponent('" +  urllib.quote(pystache.render(postData['handlebar'].value,site)) + "'));"
 else:
 	for site in DATA['sites']:
 		siteString = ''
