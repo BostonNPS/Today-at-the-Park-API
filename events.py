@@ -10,7 +10,7 @@ import datetime
 import json
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
-CLIENT_SECRET_FILE = '../py/client_secret.json'
+CLIENT_SECRET_FILE = '../../py/client_secret.json'
 APPLICATION_NAME = 'Google Calendar CGI'
 
 def get_credentials():

@@ -13,7 +13,7 @@ tree  = ET.parse('/home/npseventsite/public_html/sites.xml')
 sites = tree.getroot()
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
-CLIENT_SECRET_FILE = '../py/client_secret.json'
+CLIENT_SECRET_FILE = '../../py/client_secret.json'
 APPLICATION_NAME = 'Google Calendar CGI'
 
 def get_credentials():
@@ -55,6 +55,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 		siteReq = ["all"]
 	h = service.events().list(calendarId='7et3dj1eatj002e6485sqi5bu0@group.calendar.google.com', singleEvents=True, timeMin=dateReq.isoformat("T")+ "Z",timeMax=dateMax.isoformat("T")+ "Z").execute()
 	siteData = []
+	errors = []
 	for sReq in siteReq:
 		for site in sites:
 			if(site.attrib['abbr'] == sReq) or siteReq[0] == 'all':
@@ -82,7 +83,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 								if ((override["summary"] == site.attrib["abbr"]) or (override["summary"] == site.attrib["name"])) and (startDate == dateReq.strftime("%Y-%m-%d")):
 									currHours = override["description"]
 					except ValueError:
-						print "<p style='display:none'> Date error somewhere. Comparison: " + season.attrib["start"] + " <= " + dateReq + " <= " + season.attrib["end"] + "</p>"
+						errors.append("Date error somewhere for site " + site.attrib['abbr'] + ". Comparison: " + str(season.attrib["start"]) + " <= " + str(dateReq) + " <= " + str(season.attrib["end"]) + "</p>")
 				feeinfo = []
 				feeRequired = ""
 				if site.find("fees"):
@@ -109,7 +110,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 				for web in site.findall("website"):
 					websites.append({'href':web.attrib['href'],'text':web.text})
 				siteData.append({'name':site.attrib['name'],'abbr':site.attrib['abbr'], 'hours':currHours, 'fees_required':feeRequired,'fees':feeinfo, 'keywords' : keywords, 'locations':locations, 'accessibility':accessibility, 'websites':websites})
-	return {'sites':siteData}
+	return {'sites':siteData,'errors':errors}
 	
 def getToday(siteReq = ["all"]):
 	return getData(siteReq)
