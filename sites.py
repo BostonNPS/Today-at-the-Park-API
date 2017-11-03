@@ -65,12 +65,30 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 						if datetime.datetime.strptime(season.attrib["start"] + " " + str(dateReq.year),"%B %d %Y") <= dateReq <= datetime.datetime.strptime(season.attrib["end"] + " " + str(dateReq.year),"%B %d %Y"):
 							currHours = season.find("default").text
 							for exception in season.findall("exception"):
+								#if there is an exception with attribute day (i.e. Sunday, Monday, etc.) only meaning every Sunday, Monday, etc...
 								if exception.attrib.has_key('day') and not exception.attrib.has_key('nth') and exception.attrib['day'] == dateReq.strftime("%A"):
 									currHours = exception.text
-								if exception.attrib.has_key('day') and exception.attrib.has_key('nth') and not exception.attrib.has_key('month') and exception.attrib['day'] == dateReq.strftime("%A") and (dateReq.day/7) + 1 == int(exception.attrib['nth']):
-									currHours = exception.text
-								if exception.attrib.has_key('day') and exception.attrib.has_key('nth') and exception.attrib.has_key('month') and exception.attrib['day'] == dateReq.strftime("%A") and (dateReq.day/7) + 1 == int(exception.attrib['nth'] and exception.attrib['month'] == dateReq.strftime("%B")):
-									currHours = exception.text
+								#if there is an exception where it is the nth day (Sunday, Monday, etc.) and optionally a specific month stated...
+								if exception.attrib.has_key('day') and exception.attrib.has_key('nth') and exception.attrib['day'] == dateReq.strftime("%A"):
+									#first get the day (number in the month) the nth Sunday/Monday/etc. actually is
+									lastday = ''
+									nth = 0
+									dateofnthday = ''
+									if dateReq.month == 12:
+										lastday = datetime.date(dateReq.year + 1, 1, 1) - datetime.timedelta (days = 1)
+									else:
+										lastday = datetime.date(dateReq.year, dateReq.month + 1, 1) - datetime.timedelta (days = 1)
+									for x in range(1,lastday.day):
+										if datetime.date(dateReq.year,dateReq.month,x).strftime("%A") == exception.attrib['day']:
+											nth = nth + 1
+											if nth == int(exception.attrib['nth']):
+												dateofnthday = datetime.date(dateReq.year,dateReq.month,x)
+									if ((not exception.attrib.has_key('month')) or (exception.attrib.has_key('month') and exception.attrib['month'] == dateReq.strftime("%B")) and dateofnthday.day == dateReq.day):
+										currHours = exception.text
+								#if there is an exception on an nth day AND a specific month...
+								#if (exception.attrib.has_key('day') and exception.attrib.has_key('nth') and exception.attrib.has_key('month')) and (exception.attrib['day'] == dateReq.strftime("%A") and ((dateReq.day/7) + 1) == int(exception.attrib['nth'] and exception.attrib['month'] == dateReq.strftime("%B"))):
+								#	currHours = exception.text
+								#LASTLY if there is an explicit date specified (i.e. December 25.)
 								if exception.attrib.has_key('date') and (dateReq.strftime("%B ") + str(dateReq.day) == exception.attrib['date'] or dateReq.strftime("%B %d") == exception.attrib['date']):
 									currHours = exception.text
 							for override in h['items']:
