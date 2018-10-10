@@ -1,21 +1,19 @@
-#!/home/npseventsite/py/bin/python
+#!/usr/bin/python
 #parses sites.xml and also looks for overriding hour data on gCal.
-import httplib2
 import os
-from apiclient import discovery
-from oauth2client import client
-from oauth2client import tools
-from oauth2client.file import Storage
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
 import datetime
+import json
 
 import xml.etree.ElementTree as ET
-tree  = ET.parse('/home/npseventsite/public_html/sites.xml')
+tree  = ET.parse('sites.xml')
 sites = tree.getroot()
 
-SCOPES = 'https://www.googleapis.com/auth/calendar'
-CLIENT_SECRET_FILE = '../../py/client_secret.json'
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+SERVICE_ACCOUNT_FILE = '/home/nps/.credentials/bostonnpsevents.json'
 APPLICATION_NAME = 'Google Calendar CGI'
-
+'''
 def get_credentials():
 	"""Gets valid user credentials from storage.
 
@@ -46,6 +44,18 @@ def get_credentials():
 credentials = get_credentials()
 http = credentials.authorize(httplib2.Http())
 service = discovery.build('calendar', 'v3', http=http)
+'''
+'''
+store = file.Storage('token.json')
+creds = store.get()
+if not creds or creds.invalid:
+	flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+	creds = tools.run_flow(flow, store)
+service = build('calendar', 'v3', http=creds.authorize(Http()))
+'''
+
+creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+service = build('calendar', 'v3', credentials=creds)
 
 def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date.today(), datetime.time(0,0))):
 	dateMax = dateReq + datetime.timedelta(1)

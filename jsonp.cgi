@@ -1,4 +1,4 @@
-#!/home/npseventsite/py/bin/python
+#!/usr/bin/python
 print "Content-type: text/json"
 print
 import sites

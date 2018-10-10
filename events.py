@@ -1,18 +1,16 @@
-#!/home/npseventsite/py/bin/python
+#!/usr/bin/python
 #parses events found on the events gCal
-import httplib2
 import os
-from apiclient import discovery
-from oauth2client import client
-from oauth2client import tools
-from oauth2client.file import Storage
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
 import datetime
 import json
 
-SCOPES = 'https://www.googleapis.com/auth/calendar'
-CLIENT_SECRET_FILE = '../../py/client_secret.json'
-APPLICATION_NAME = 'Google Calendar CGI'
 
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+SERVICE_ACCOUNT_FILE = '/home/nps/.credentials/bostonnpsevents.json'
+APPLICATION_NAME = 'Google Calendar CGI'
+'''
 def get_credentials():
 	"""Gets valid user credentials from storage.
 
@@ -40,9 +38,22 @@ def get_credentials():
 		print('Storing credentials to ' + credential_path)
 	return credentials
 
+'''
+'''
+store = file.Storage('token.json')
+creds = store.get()
+if not creds or creds.invalid:
+	flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+	creds = tools.run_flow(flow, store)
+'''
+creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+service = build('calendar', 'v3', credentials=creds)
+
+'''
 credentials = get_credentials()
 http = credentials.authorize(httplib2.Http())
 service = discovery.build('calendar', 'v3', http=http)
+'''
 
 def getData(keywords = ["all"], dateReq = datetime.datetime.combine(datetime.date.today(), datetime.time(0,0))):
 	dateMax = dateReq + datetime.timedelta(1)
