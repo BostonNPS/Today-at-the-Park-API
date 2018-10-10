@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<sites>
+	<site abbr="AMH" name="Museum of African American History &amp; The African Meeting House">
+		<hours>
+			<season start="January 1" end="December 31">
+				<default>Open 10 a.m. - 4 p.m.</default>
+				<exception day="Sunday">Closed today.</exception>
+				<exception date="January 1">Closed today.</exception>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Adults: $10.00</item>
+			<item>Seniors &amp; Students: $8</item>
+			<item>12 &amp; Under: Free</item>
+		</fees>
+		<keywords>
+			<keyword>African Meeting</keyword>
+			<keyword>Museum of African American History</keyword>
+			<keyword>Abiel Smith</keyword>
+			<keyword>Smith Court</keyword>
+			<keyword>Smith Ct</keyword>
+			<keyword>Beacon Hill</keyword>
+			<keyword>Shaw Memorial</keyword>
+		</keywords>
+		<locations>
+			<location>Beacon Hill</location>
+			<location>African Meeting House</location>
+			<location>Abiel Smith School</location>
+			<location>Robert Gould Shaw Memorial</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The Abiel Smith School and the African Meeting House are accessible.</consideration>
+		</accessibility>
+		<website href="http://www.nps.gov/boaf">Visit the Boston African American National Historic Site website.</website>
+		<website href="http://maah.org">Visit the Museum of African American History website.</website>
+	</site>
+	<site abbr="OSMH" name="Old South Meeting House">
+		<hours>
+			<season start="January 1" end="March 31">
+				<default>Open 10 am - 4 pm</default>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="April 1" end="October 31">
+				<default>Open 9:30 am - 5 pm</default>
+			</season>
+			<season start="November 1" end="December 31">
+				<default>Open 10 am - 4 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 24">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Adults: $6.00</item>
+			<item>Seniors: $5.00</item>
+			<item>Ages 6-18: $1.00</item>
+		</fees>
+		<keywords>
+			<keyword>Old South</keyword>
+		</keywords>
+		<locations>
+			<location>Old South Meeting House</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The main floor and the lower levels of Old South Meeting House are accessible.</consideration>
+		</accessibility>
+		<website href="http://www.oldsouthmeetinghouse.org/">Visit the Old South Meeting House website.</website>
+	</site>
+	<site abbr="OSH" name="Old State House">
+		<hours>
+			<season start="January 1" end="May 31">
+				<default>Open 9 am - 5 pm</default>
+				<exception day="Monday" nth="last" end="May 31">Open 9 am - 6 pm</exception>
+				<exception date="January 1">Closed today.</exception>
+				<exception day="Monday" nth="1" month="February">Closed this week.</exception>
+				<exception day="Tuesday" nth="1" month="February">Closed this week.</exception>
+				<exception day="Wednesday" nth="1" month="February">Closed this week.</exception>
+				<exception day="Thursday" nth="1" month="February">Closed this week.</exception>
+				<exception day="Friday" nth="1" month="February">Closed this week.</exception>
+			</season>
+			<season start="June 1" end="August 31">
+				<default>Open 9 am - 6 pm</default>
+			</season>
+			<season start="September 1" end="December 31">
+				<default>Open 9 am - 5 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 24">Open 9 a.m. - 3 p.m.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Adults: $10.00</item>
+			<item>Seniors &amp; Students: $8.50</item>
+			<item>18 &amp; Under: Free</item>
+		</fees>
+		<keywords>
+			<keyword>Old State</keyword>
+			<keyword>Boston Massacre</keyword>
+		</keywords>
+		<locations>
+			<location>Old State House</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="false">Old State House can only be accessed via stairs.</consideration>
+		</accessibility>
+		<website href="http://www.revolutionaryboston.org/">Visit the Old State House website.</website>
+	</site>
+	<site abbr="FHVC" name="Faneuil Hall Visitor Center">
+		<hours>
+			<season start="January 1" end="December 31">
+				<default>Open 9 am - 6 pm</default>
+				<exception date="January 1">Closed today.</exception>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Faneuil Hall</keyword>
+		</keywords>
+		<locations>
+			<location>Faneuil Hall Visitor Center</location>
+			<location>Faneuil Hall Education Center</location>
+			<location>Samuel Adams Park</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">Faneuil Hall is accessible via the ramp entrance on the southern side of the building.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/learn/historyculture/fh.htm">Learn more...</website>
+	</site>
+	<site abbr="FHGH" name="The Great Hall">
+		<hours>
+			<season start="January 1" end="December 31">
+				<default>Open 9 am - 5 pm</default>
+				<exception date="January 1">Closed today.</exception>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Faneuil Hall</keyword>
+			<keyword>Great Hall</keyword>
+			<keyword>Great Hall, Second Floor</keyword>
+			<keyword>The Great Hall, Second Floor</keyword>
+		</keywords>
+		<locations>
+			<location>The Great Hall</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The Great Hall is accessible via the elevator on the southern side of the building.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/learn/historyculture/fh.htm">Learn more...</website>
+	</site>
+	<site abbr="PRH" name="Paul Revere House">
+		<hours>
+			<season start="January 1" end="March 31">
+				<default>Open 9:30 am - 4:15 pm</default>
+				<exception day="Monday">Closed Mondays.</exception>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="April 1" end="April 14">
+				<default>Open 9:30 am - 4:15 pm</default>
+			</season>
+			<season start="April 15" end="October 31">
+				<default>Open 9:30 am - 5:15 pm</default>
+			</season>
+			<season start="November 1" end="December 31">
+				<default>Open 9:30 am - 4:15 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Adults: $5.00</item>
+			<item>Seniors &amp; Students: $4.50</item>
+			<item>Ages 5-17: $1.00</item>
+		</fees>
+		<keywords>
+			<keyword>Paul Revere House</keyword>
+			<keyword>North Square</keyword>
+			<keyword>North Sq</keyword>
+			<keyword>Hichborn House</keyword>
+		</keywords>
+		<locations>
+			<location>Paul Revere House</location>
+			<location>Paul Revere Garden</location>
+			<location>Pierce Hitchborn House</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The first floor of the house is accessible via the courtyard ramps. The second floor is accessible via the elevator in the visitor center and then taking the catwalk to the house.</consideration>
+		</accessibility>
+		<website href="http://www.paulreverehouse.org/">Visit the Paul Revere House website.</website>
+	</site>
+	<site abbr="ONC" name="Old North Church">
+		<hours>
+			<season start="January 1" end="March 31">
+				<default>Open 10 am - 4 pm</default>
+			</season>
+			<season start="April 1" end="November 15">
+				<default>Open 9 am - 6 pm</default>
+			</season>
+			<season start="November 16" end="December 31">
+				<default>Open 10 am - 4 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Adults: $8.00</item>
+			<item>Seniors &amp; Students: $6.00</item>
+			<item>Children: $4.00</item>
+		</fees>
+		<keywords>
+			<keyword>Old North</keyword>
+			<keyword>Salem St</keyword>
+			<keyword>Salem Street</keyword>
+			<keyword>Clough House</keyword>
+		</keywords>
+		<locations>
+			<location>Old North Church</location>
+			<location>Old North Campus</location>
+			<location>Clough House - Old North Campus</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">Old North's sanctuary is accessible. &lt;em&gt;Note: To avoid steps in the courtyard while following the Freedom Trail from downtown, you will have to make a left at Unity St., take the right on to Tileston St., then make a right on to Salem St.&lt;/em&gt;</consideration>
+		</accessibility>
+		<website href="http://oldnorth.com/">Visit the Old North website.</website>
+	</site>
+	<site abbr="BH" name="Bunker Hill Monument">
+		<hours>
+			<season start="January 1" end="April 1">
+				<default>Open for climbing, 10 am - 4:30 pm &lt;i style=&quot;color:red&quot;&gt;when conditions permit.&lt;/i&gt;</default>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="April 2" end="June 23">
+				<default>Open for climbing, 9:30 am - 4:30 pm &lt;br&gt;&lt;span style=&quot;color:red; font-style:italic;&quot;&gt;Tickets required - available at Bunker Hill Museum.&lt;/span&gt;</default>
+			</season>
+			<season start="June 24" end="September 29">
+				<default>Open for climbing, 10 am - 6 pm &lt;br&gt;&lt;span style=&quot;color:red; font-style:italic;&quot;&gt;when conditions permit.&lt;/span&gt;</default>
+			</season>
+			<season start="September 30" end="December 31">
+				<default>Open for climbing, 10 am - 4:30 pm &lt;i style=&quot;color:red&quot;&gt;when conditions permit.&lt;/i&gt;</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Bunker Hill</keyword>
+			<keyword>Monument Sq</keyword>
+			<keyword>Monument Square</keyword>
+		</keywords>
+		<locations>
+			<location>Bunker Hill Lodge</location>
+			<location>Bunker Hill Grounds</location>
+			<location>Bunker Hill Lodge &amp; Grounds</location>
+			<location>Bunker Hill Monument</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">Bunker Hill Lodge, the base of Bunker Hill Monument, and the Bunker Hill Museum are accessible.</consideration>
+			<consideration accessible="false">The top of Bunker Hill Monument can only be reached via 294 steps.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/planyourvisit/bhm.htm">Learn more...</website>
+	</site>
+	<site abbr="BHM" name="Bunker Hill Museum">
+		<hours>
+			<season start="January 1" end="May 4">
+				<default>Open 10 am - 5 pm</default>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="May 5" end="June 23">
+				<default>Open 9:30 am - 5 pm</default>
+			</season>
+			<season start="June 24" end="September 29">
+				<default>Open 10 am - 6 pm</default>
+			</season>
+			<season start="September 30" end="December 31">
+				<default>Open 10 am - 5 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Bunker Hill</keyword>
+			<keyword>Monument Sq</keyword>
+			<keyword>Monument Square</keyword>
+		</keywords>
+		<locations>
+			<location>Bunker Hill Museum</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">Bunker Hill Lodge, the base of Bunker Hill Monument, and the Bunker Hill Museum are accessible.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/planyourvisit/bhm.htm">Learn more...</website>
+	</site>
+	<site abbr="CNYVC" name="Charlestown Navy Yard Visitor Center">
+		<hours>
+			<season start="January 1" end="May 4">
+				<default>Open 10 am - 5 pm</default>
+				<exception day="Monday">Closed today.</exception>
+				<exception day="Tuesday">Closed today.</exception>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="May 5" end="June 23">
+				<default>Open 9 am - 5 pm</default>
+			</season>
+			<season start="June 24" end="September 29">
+				<default>Open 9 am - 6 pm</default>
+			</season>
+			<season start="September 30" end="December 31">
+				<default>Open 10 am - 5 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Charlestown Navy Yard Visitor Center</keyword>
+			<keyword>Navy Yard</keyword>
+		</keywords>
+		<locations>
+			<location>Charlestown Navy Yard Visitor Center</location>
+			<location>Pier 1 - Charlestown Navy Yard</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The Charlestown Navy Yard Visitor Center is accessible.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/learn/historyculture/cny.htm">Learn more...</website>
+	</site>
+	<site abbr="USSCM" name="USS Constitution Museum">
+		<hours>
+			<season start="January 1" end="March 31">
+				<default>Open 10 am - 5 pm</default>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="April 1" end="October 30">
+				<default>Open 9 am - 6 pm</default>
+			</season>
+			<season start="October 31" end="December 31">
+				<default>Open 10 am - 5 pm</default>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="true">
+			<item>Admission by donation.</item>
+		</fees>
+		<keywords>
+			<keyword>Constitution Museum</keyword>
+		</keywords>
+		<locations>
+			<location>USS Constitution Museum</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The USS Constitution Museum is accessible.</consideration>
+		</accessibility>
+		<website href="http://www.ussconstitutionmuseum.org/">Visit the USS Constitution Museum website.</website>
+	</site>
+	<site abbr="USSC" name="USS Constitution">
+		<hours>
+			<season start="January 1" end="April 3">
+				<default>Open for tours 10 am - 3:30 pm</default>
+				<exception day="Monday">Closed today.</exception>
+				<exception day="Tuesday">Closed today.</exception>
+				<exception date="January 1">Closed today.</exception>
+			</season>
+			<season start="April 4" end="April 30">
+				<default>Open 10 am - 6 pm</default>
+				<exception day="Monday">Closed today.</exception>
+				<exception day="Tuesday">Closed today.</exception>
+			</season>
+			<season start="May 1" end="October 1">
+				<default>Open 10 am - 6 pm</default>
+				<exception day="Monday">Closed today.</exception>
+			</season>
+			<season start="October 2" end="November 3">
+				<default>Open 10 am - 5 pm</default>
+				<exception day="Monday">Closed today.</exception>
+			</season>
+			<season start="November 3" end="December 31">
+				<default>Open 10 am - 4 pm</default>
+				<exception day="Monday">Closed today.</exception>
+				<exception day="Tuesday">Closed today.</exception>
+				<exception day="Thursday" nth="4" month="November">Closed today.</exception>
+				<exception date="December 25">Closed today.</exception>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>&lt;i&gt;Constitution&lt;/i&gt;</keyword>
+			<keyword>&lt;em&gt;Constitution&lt;/em&gt;</keyword>
+		</keywords>
+		<locations>
+			<location>USS &lt;i&gt;Constitution&lt;/i&gt;</location>
+			<location>USS &lt;em&gt;Constitution&lt;/em&gt;</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="false">USS &lt;em&gt;Constitution&lt;em&gt; is a historic warship and has limited accessibility.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/learn/historyculture/ussconst.htm">Learn more...</website>
+		<website href="http://www.navy.mil/local/constitution/">Visit the official USS Constitution website.</website>
+	</site>
+	<site abbr="USSCY" name="USS Cassin Young">
+		<hours>
+			<season start="January 1" end="May 4">
+				<default>Closed for the season.</default>
+			</season>
+			<season start="May 5" end="June 23">
+				<default>Open 10 am - 4:30 pm</default>
+			</season>
+			<season start="June 24" end="September 29">
+				<default>Open 10 am - 5:30 pm</default>
+			</season>
+			<season start="September 30" end="December 1">
+				<default>Open 10 am - 4:30 pm</default>
+			</season>
+			<season start="December 1" end="December 31">
+				<default>Closed.</default>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Cassin Young</keyword>
+		</keywords>
+		<locations>
+			<location>USS &lt;i&gt;Cassin Young&lt;/i&gt;</location>
+			<location>USS &lt;em&gt;Cassin Young&lt;/em&gt;</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="false">USS &lt;em&gt;Cassin Young&lt;/em&gt; is a historic warship and has limited accessibility.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/bost/learn/historycutlure/usscassinyoung.htm">Learn more...</website>
+	</site>
+	<site abbr="Gate1" name="Gate 1 Museum Pop-up Store">
+		<hours>
+			<season start="January 1" end="December 31">
+				<default>Closed.</default>
+			</season>
+		</hours>
+		<fees required="">
+			<item>Navy Yard gifts, souvenirs, and more!</item>
+		</fees>
+		<keywords>
+		</keywords>
+	</site>
+	<site abbr="BHIWC" name="Boston Harbor Islands Welcome Center">
+		<hours>
+			<season start="January 1" end="May 12">
+				<default>Closed for the season.</default>
+			</season>
+			<season start="May 13" end="June 22">
+				<default>Open 9 a.m. - 4:30 p.m.</default>
+			</season>
+			<season start="June 23" end="September 4">
+				<default>Open 9 a.m. - 6 p.m.</default>
+			</season>
+			<season start="September 5" end="October 9">
+				<default>Open 9 a.m. - 4:30 p.m.</default>
+			</season>
+			<season start="October 10" end="December 31">
+				<default>Closed for the season.</default>
+			</season>
+		</hours>
+		<fees required="false">
+			<item>Free admission.</item>
+		</fees>
+		<keywords>
+			<keyword>Harbor Islands</keyword>
+			<keyword>Welcome Center</keyword>
+		</keywords>
+		<locations>
+			<location>Rose Kennedy Greenway</location>
+		</locations>
+		<accessibility>
+			<consideration accessible="true">The Harbor Islands Welcome Center is accessible.</consideration>
+		</accessibility>
+		<website href="https://www.nps.gov/boha/index.htm">Learn more...</website>
+	</site>
+	<site abbr="DECCA" name="DECCA Shipyard Galley">
+		<hours>
+			<season start="January 1" end="March 31">
+				<default>Closed for the season.</default>
+			</season>
+			<season start="April 1" end="May 31">
+				<default>Open 10 a.m. - 5 p.m.</default>
+			</season>
+			<season start="June 1" end="October 31">
+				<default>Open 10 a.m. - 5 p.m.</default>
+			</season>
+			<season start="November 1" end="December 31">
+				<default>Closed for the season.</default>
+			</season>
+		</hours>
+		<fees required="">
+			<item>Fast casual counter-service featuring sandwiches &amp; fries.</item>
+		</fees>
+		<keywords>
+		</keywords>
+	</site>
+</sites>
