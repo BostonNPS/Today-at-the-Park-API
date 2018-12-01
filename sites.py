@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #parses sites.xml and also looks for overriding hour data on gCal.
 import os
 from googleapiclient.discovery import build
@@ -11,7 +10,7 @@ tree  = ET.parse('sites.xml')
 sites = tree.getroot()
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-SERVICE_ACCOUNT_FILE = '/home/nps/.credentials/bostonnpsevents.json'
+SERVICE_ACCOUNT_FILE = os.path.join(os.path.expanduser("~"),".credentials/bostonnpsevents.json")
 APPLICATION_NAME = 'Google Calendar CGI'
 '''
 def get_credentials():
@@ -76,10 +75,10 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 							currHours = season.find("default").text
 							for exception in season.findall("exception"):
 								#if there is an exception with attribute day (i.e. Sunday, Monday, etc.) only meaning every Sunday, Monday, etc...
-								if exception.attrib.has_key('day') and not exception.attrib.has_key('nth') and exception.attrib['day'] == dateReq.strftime("%A"):
+								if "day" in exception.attrib and not "nth" in exception.attrib and exception.attrib['day'] == dateReq.strftime("%A"):
 									currHours = exception.text
 								#if there is an exception where it is the nth day (Sunday, Monday, etc.) and optionally a specific month stated...
-								if exception.attrib.has_key('day') and exception.attrib.has_key('nth') and exception.attrib['day'] == dateReq.strftime("%A"):
+								if "day" in exception.attrib and "nth" in exception.attrib and exception.attrib['day'] == dateReq.strftime("%A"):
 									#first get the day (number in the month) the nth Sunday/Monday/etc. actually is
 									lastday = ''
 									nth = 0
@@ -93,20 +92,21 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 											nth = nth + 1
 											if nth == int(exception.attrib['nth']):
 												dateofnthday = datetime.date(dateReq.year,dateReq.month,x)
-									if ((not exception.attrib.has_key('month')) or (exception.attrib.has_key('month') and exception.attrib['month'] == dateReq.strftime("%B")) and dateofnthday.day == dateReq.day):
+									if ((not "month" in exception.attrib) or ("month" in exception.attrib and exception.attrib['month'] == dateReq.strftime("%B")) and dateofnthday.day == dateReq.day):
 										currHours = exception.text
 								#if there is an exception on an nth day AND a specific month...
-								#if (exception.attrib.has_key('day') and exception.attrib.has_key('nth') and exception.attrib.has_key('month')) and (exception.attrib['day'] == dateReq.strftime("%A") and ((dateReq.day/7) + 1) == int(exception.attrib['nth'] and exception.attrib['month'] == dateReq.strftime("%B"))):
+								#if ("day" in exception.attrib and "nth" in exception.attrib and "month" in exception.attrib) and (exception.attrib['day'] == dateReq.strftime("%A") and ((dateReq.day/7) + 1) == int(exception.attrib['nth'] and exception.attrib['month'] == dateReq.strftime("%B"))):
 								#	currHours = exception.text
 								#LASTLY if there is an explicit date specified (i.e. December 25.)
-								if exception.attrib.has_key('date') and (dateReq.strftime("%B ") + str(dateReq.day) == exception.attrib['date'] or dateReq.strftime("%B %d") == exception.attrib['date']):
+								if "date" in exception.attrib and (dateReq.strftime("%B ") + str(dateReq.day) == exception.attrib['date'] or dateReq.strftime("%B %d") == 
+exception.attrib['date']):
 									currHours = exception.text
 							for override in h['items']:
 								startDate = ''
-								if override['start'].has_key('date'):
+								if "date" in override['start']:
 									startDate = override['start']['date']
 								else:
-									if override['start'].has_key('dateTime'):
+									if "dateTime" in override['start']:
 										startDate = override['start']['dateTime'].split('T')[0]
 								if ((override["summary"] == site.attrib["abbr"]) or (override["summary"] == site.attrib["name"])) and (startDate == dateReq.strftime("%Y-%m-%d")):
 									currHours = override["description"]
@@ -117,7 +117,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 				if site.find("fees"):
 					for fee in site.find("fees").findall("item"):
 						feeinfo.append(fee.text)
-					if site.find("fees").attrib.has_key("required"):
+					if "required" in site.find("fees"):
 						feeRequired = site.find("fees").attrib["required"]
 				keywords = []
 				if site.find("keywords"):
@@ -131,7 +131,7 @@ def getData(siteReq = ["all"], dateReq = datetime.datetime.combine(datetime.date
 				if site.find("accessibility"):
 					for consideration in site.find("accessibility").findall("consideration"):
 						accessible = ""
-						if consideration.attrib.has_key("accessible"):
+						if "accessible" in consideration.attrib:
 							accessible = consideration.attrib["accessible"]
 						accessibility.append({'accessible':accessible,'consideration':consideration.text})
 				websites = []

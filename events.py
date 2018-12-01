@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #parses events found on the events gCal
 import os
 from googleapiclient.discovery import build
@@ -8,7 +7,7 @@ import json
 
 
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-SERVICE_ACCOUNT_FILE = '/home/nps/.credentials/bostonnpsevents.json'
+SERVICE_ACCOUNT_FILE = os.path.join(os.path.expanduser("~"),".credentials/bostonnpsevents.json")
 APPLICATION_NAME = 'Google Calendar CGI'
 '''
 def get_credentials():

@@ -1,6 +1,6 @@
-#!/usr/bin/python
-print "Content-type: text/json"
-print
+#!/home/bostonnp/virtualenv/public__html_tap/3.6/bin/python
+print("Content-type: text/json")
+print()
 import sites
 import events
 import cgi
@@ -14,15 +14,15 @@ dateReq = dateReq = datetime.datetime.combine(datetime.date.today(), datetime.ti
 siteReq = "all"
 DATA = {}
 callback = 'callback'
-if postData.has_key('callback'):
+if "callback" in postData:
 	callback = postData['callback'].value
 
 
-if postData.has_key('date'):
+if "date" in postData:
 	dateStrArray = postData['date'].value.split("-")
 	dateReq = datetime.datetime(int(dateStrArray[0]),int(dateStrArray[1]),int(dateStrArray[2]))
 DATA['date_requested'] = dateReq.isoformat("T")
-if postData.has_key('site'):
+if "site" in postData:
 	siteReq = postData['site'].value.split(",")
 	DATA['sites'] = sites.getData(siteReq,dateReq)['sites']
 	keywords = []
@@ -36,4 +36,4 @@ else:
 	DATA['sites'] = sites.getData(["all"],dateReq)['sites']
 	DATA['events'] = events.getData(['all'],dateReq)['events']
 
-print callback + "(" + json.dumps(DATA) + ")"
+print(callback + "(" + json.dumps(DATA) + ")")
